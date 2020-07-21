@@ -2,7 +2,7 @@ from telegram.ext import Updater, CommandHandler
 import requests
 import re
 
-from config import key
+from config import key, cat_key
 
 def get_url_dog(): 
 	contents = requests.get('https://random.dog/woof.json').json()
@@ -14,9 +14,10 @@ def bop(bot, update):
 	bot.send_photo(chat_id=chat_id, photo=url)
 
 def get_url_cat():
-    contents = requests.get('https://api.thecatapi.com/v1/images/search').json()[0]
+    header = {'x-api-key': cat_key}
+    contents = requests.get('https://api.thecatapi.com/v1/images/search', headers=header).json()[0]
     print(contents)
-    return contents
+    return contents['url']
 
 def maw(bot, update):
     url = get_url_cat()
