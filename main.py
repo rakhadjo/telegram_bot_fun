@@ -33,6 +33,11 @@ def kanyeQuote(bot, update):
     chat_id = update.message.chat_id
     update.message.reply_text('"' + contents['quote'] + '"')
 
+def chuckNorrisFax(bot, update):
+    contents = requests.get('https://api.chucknorris.io/jokes/random').json()
+    chat_id = update.message.chat_id
+    update.message.reply_text('Chuck Norris Fact ' + contents['id'] + ':\n\n' + contents['value'])
+
 
 def main():
     updater = Updater(key)
@@ -41,6 +46,7 @@ def main():
     dp.add_handler(CommandHandler('maw',maw))
     dp.add_handler(CommandHandler('joke',joke))
     dp.add_handler(CommandHandler('kanyeQuote',kanyeQuote))
+    dp.add_handler(CommandHandler('chuckNorrisFax',chuckNorrisFax))
     updater.start_polling()
     updater.idle()
     
