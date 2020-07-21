@@ -28,6 +28,11 @@ def joke(bot, update):
     chat_id = update.message.chat_id
     update.message.reply_text(contents['setup'] + '\n\n' + contents['delivery'])
 
+def kanyeQuote(bot, update):
+    contents = requests.get('https://api.kanye.rest').json()
+    chat_id = update.message.chat_id
+    update.message.reply_text('"' + contents['quote'] + '"')
+
 
 def main():
     updater = Updater(key)
@@ -35,6 +40,7 @@ def main():
     dp.add_handler(CommandHandler('bop',bop))
     dp.add_handler(CommandHandler('maw',maw))
     dp.add_handler(CommandHandler('joke',joke))
+    dp.add_handler(CommandHandler('kanyeQuote',kanyeQuote))
     updater.start_polling()
     updater.idle()
     
