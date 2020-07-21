@@ -16,7 +16,6 @@ def bop(bot, update):
 def get_url_cat():
     header = {'x-api-key': cat_key}
     contents = requests.get('https://api.thecatapi.com/v1/images/search', headers=header).json()[0]
-    print(contents)
     return contents['url']
 
 def maw(bot, update):
@@ -24,12 +23,18 @@ def maw(bot, update):
     chat_id = update.message.chat_id
     bot.send_photo(chat_id=chat_id, photo=url)
 
+def joke(bot, update):
+    contents = requests.get('https://sv443.net/jokeapi/v2/joke/Any?format=json').json()
+    chat_id = update.message.chat_id
+    update.message.reply_text(contents['setup'] + '\n\n' + contents['delivery'])
+
 
 def main():
     updater = Updater(key)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('bop',bop))
     dp.add_handler(CommandHandler('maw',maw))
+    dp.add_handler(CommandHandler('joke',joke))
     updater.start_polling()
     updater.idle()
     
