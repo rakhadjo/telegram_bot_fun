@@ -40,14 +40,24 @@ def chuckNorrisFax(bot, update):
 
 
 def main():
-    updater = Updater(key)
+	# Create Updater Instance
+	# Passing the Bot API Key
+    updater = Updater(key, use_context=True)
+
+    # Get the dispatcher to register handlers
     dp = updater.dispatcher
+
+    # Different Commands
     dp.add_handler(CommandHandler('bop',bop))
     dp.add_handler(CommandHandler('maw',maw))
     dp.add_handler(CommandHandler('joke',joke))
     dp.add_handler(CommandHandler('kanyeQuote',kanyeQuote))
     dp.add_handler(CommandHandler('chuckNorrisFax',chuckNorrisFax))
+
+    # Start the Bot
     updater.start_polling()
+
+    # Run the bot, until interrupted in the terminal
     updater.idle()
     
 if __name__ == '__main__':
