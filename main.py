@@ -1,6 +1,8 @@
 from telegram.ext import Updater, CommandHandler
 import requests
 import re
+import os
+PORT = int(os.environ.get('PORT', 5000))
 
 #from config import key, cat_key
 key = '1153261086:AAGbv-YS9a8jQPfsz2bPK0h-9HHUPpdL72k'
@@ -42,14 +44,28 @@ def chuckNorrisFax(bot, update):
 
 
 def main():
+	# Create Updater Instance
+	# Passing the Bot API Key
     updater = Updater(key)
+
+    # Get the dispatcher to register handlers
     dp = updater.dispatcher
+
+    # Different Commands
     dp.add_handler(CommandHandler('bop',bop))
     dp.add_handler(CommandHandler('maw',maw))
     dp.add_handler(CommandHandler('joke',joke))
     dp.add_handler(CommandHandler('kanyeQuote',kanyeQuote))
     dp.add_handler(CommandHandler('chuckNorrisFax',chuckNorrisFax))
-    updater.start_polling()
+
+    # Start the Bot
+    updater.start_webhook(listen="0.0.0.0", 
+    	port=int(PORT),
+    	url_path=key)
+    updater.bot.setWebhook('https://cursed-telegram-bot.herokuapp.com/' + key)
+
+
+    # Run the bot, until interrupted in the terminal
     updater.idle()
     
 if __name__ == '__main__':
