@@ -1,6 +1,8 @@
 from telegram.ext import Updater, CommandHandler
 import requests
 import re
+import os
+PORT = int(os.environ.get('PORT', 5000))
 
 from config import key, cat_key
 
@@ -55,7 +57,11 @@ def main():
     dp.add_handler(CommandHandler('chuckNorrisFax',chuckNorrisFax))
 
     # Start the Bot
-    updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0", 
+    	port=int(PORT),
+    	url_path=key)
+    updater.bot.setWebhook('https://cursed-telegram-bot.herokuapp.com/' + key)
+
 
     # Run the bot, until interrupted in the terminal
     updater.idle()
