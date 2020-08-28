@@ -11,9 +11,12 @@ Bot Username: @useless_joke_bot
 - `/joke` returns a random joke
 - `/kanyeQuote` returns a random Kanye West quote
 - `/chucknorrisfax` returns a random fact about Chuck Norris
+- more to come!
 
 ## Usage
-Aside from the default Python gitignore, there is a `config.py` file that is in the `.gitignore`. `config.py` contains the API Key for the chat bot, and the random cat images API.
+Aside from the default Python gitignore, there is a `config.py` file that is in the `.gitignore`. `config.py` contains the API Key for the chat bot, and the random cat images API. 
+
+The chat bot is hosted on heroku, under `cursed-telegram-bot`. 
 
 FYI:
 `config.py`:
