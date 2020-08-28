@@ -1,6 +1,8 @@
 from telegram.ext import Updater, CommandHandler
 import requests
 import re
+import os
+PORT = int(os.environ.get('PORT', 5000))
 
 from config import key, cat_key
 
@@ -56,6 +58,7 @@ def main():
 
     # Start the Bot
     updater.start_polling()
+
 
     # Run the bot, until interrupted in the terminal
     updater.idle()
