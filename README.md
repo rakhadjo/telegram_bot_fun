@@ -27,6 +27,12 @@ cat_key = 'cat_images_api_key'
 
 Run the `main.py` project, then the chat bot should activate, then run one of the supported commands provided above. 
 
+## TODO: 
+- Integrate with my [Cursed Images API](github.com/rakhadjo/cursed_images_api) after everything in that is done!
+- Add the number guessing game
+- Provide more commands to be supported (e.g. `/about`, `/github`)
+- Maybe provide some conversation?
+
 ## REST APIs used:
 - [Cat Images API](https://api.thecatapi.com/v1/images/search)
 - [Dog Images API](https://random.dog/woof.json)
