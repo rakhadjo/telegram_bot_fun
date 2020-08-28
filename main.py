@@ -57,7 +57,10 @@ def main():
     dp.add_handler(CommandHandler('chuckNorrisFax',chuckNorrisFax))
 
     # Start the Bot
-    updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0", 
+    	port=int(PORT),
+    	url_path=key)
+    updater.bot.setWebhook('https://cursed-telegram-bot.herokuapp.com/' + key)
 
 
     # Run the bot, until interrupted in the terminal
