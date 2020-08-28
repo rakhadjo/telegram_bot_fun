@@ -42,7 +42,7 @@ def chuckNorrisFax(bot, update):
 def main():
 	# Create Updater Instance
 	# Passing the Bot API Key
-    updater = Updater(key, use_context=True)
+    updater = Updater(key)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
