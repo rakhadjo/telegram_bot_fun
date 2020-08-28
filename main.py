@@ -5,8 +5,6 @@ import os
 PORT = int(os.environ.get('PORT', 5000))
 
 from config import key, cat_key
-# key = '1153261086:AAGbv-YS9a8jQPfsz2bPK0h-9HHUPpdL72k'
-# cat_key = '9fd87723-e4ae-4213-a09f-45162b17753c'
 
 def get_url_dog(): 
 	contents = requests.get('https://random.dog/woof.json').json()
