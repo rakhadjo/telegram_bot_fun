@@ -1,5 +1,6 @@
 # Project <i>Telegram Bot Fun</i>
 ## (AKA Cursed Telegram Bot)
+[![Build Status](https://travis-ci.com/rakhadjo/telegram_bot_fun.svg?branch=master)](https://travis-ci.com/rakhadjo/telegram_bot_fun)
 
 Bot Name: cursed_bot <br>
 Bot Username: @useless_joke_bot
