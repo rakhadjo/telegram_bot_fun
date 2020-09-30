@@ -6,6 +6,16 @@ PORT = int(os.environ.get('PORT', 5000))
 
 from config import key, cat_key
 
+def get_cursed():
+    header = {'key': 'IRj4tKyZ-oT9mLt13-GkdxCwKx-hlggP2AL'}
+    contents = requests.get('http://localhost:8080/api/get', headers=header).json()
+    return contents['imej']['url']
+
+def dem(bot, update):
+    url = get_cursed()
+    chat_id = update.message.chat_id
+    bot.send_photo(chat_id=chat_id, photo=url)
+
 def get_url_dog(): 
 	contents = requests.get('https://random.dog/woof.json').json()
 	return contents['url']
